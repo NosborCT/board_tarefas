@@ -8,9 +8,8 @@ export default function Home() {
       
       <Header/>
 
-      <main className="text-center">
+      <main className="text-center ">
         <div className="mb-8">
-          {/* Placeholder for the illustration */}
           <div className="w-full max-w-2xl h-64 bg-gray-800 rounded-lg mx-auto mb-12 flex items-center justify-center">
            <Image alt="logo tarefas" src={heroImg} />
           </div>
