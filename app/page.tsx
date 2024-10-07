@@ -1,13 +1,10 @@
 import { Button } from "@/components/ui/button";
-import Header from "./components/Header";
 import Image from "next/image";
 import heroImg from "@/hero.png"
 export default function Home() {
   return (
     <div className="bg-[#0F0F0F] min-h-screen text-white flex flex-col items-center justify-center p-4">
       
-      <Header/>
-
       <main className="text-center ">
         <div className="mb-8">
           <div className="w-full max-w-2xl h-64 bg-gray-800 rounded-lg mx-auto mb-12 flex items-center justify-center">
