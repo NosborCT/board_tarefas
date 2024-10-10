@@ -1,10 +1,18 @@
+"use client";
+
 // Importa o componente Button de um caminho local e o ícone Plus da biblioteca lucide-react
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import Link from "next/link"; // Importa o componente Link do Next.js para navegação interna
+import { useSession, signIn, signOut } from "next-auth/react";
+
+
 
 // Define o componente Header como uma função
 const Header = () => {
+
+  const {data: session , status} = useSession();
+
   return (
     <>
       {/* Cabeçalho com largura máxima definida e alinhamento flexível entre os itens */}
@@ -20,19 +28,34 @@ const Header = () => {
             <Plus size={14} className="text-red-600 ml-2" /> {/* Ícone de "+" ao lado do título */}
           </div>
         </Link>
-        <Link href={"/pages/dashboard"}>
+        
+        {session ?.user && (
+          <Link href={"/pages/dashboard"}>
           <div className="ml-2">
             <Button>
               Meu Painel
             </Button>
           </div>
         </Link>
+
+        )}
+
         </div>
 
         {/* Botão estilizado com Tailwind CSS, com comportamento visual para hover */}
-        <Button className="text-white border-white hover:bg-white hover:text-black">
-          Acessar {/* Texto do botão */}
+        
+        { status === "loading" ? (
+          <></>
+        ) : session ? (
+          <Button onClick={() => signOut() } className="text-white border-white hover:bg-white hover:text-black">
+          Ola {session?.user?.name}
+          </Button>
+        ) : (
+          <Button  onClick={() => signIn("google") }  className="text-white border-white hover:bg-white hover:text-black">
+          Acessar 
         </Button>
+        )}
+
       </header>
     </>
   );
