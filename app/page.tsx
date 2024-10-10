@@ -1,6 +1,9 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import heroImg from "@/hero.png"
+
+
+
 export default function Home() {
   return (
     <div className="bg-[#0F0F0F] min-h-screen text-white flex flex-col items-center justify-center p-4">
