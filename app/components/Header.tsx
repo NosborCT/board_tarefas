@@ -16,7 +16,7 @@ const Header = () => {
   return (
     <>
       {/* Cabeçalho com largura máxima definida e alinhamento flexível entre os itens */}
-      <header className="w-full max-w-4xl flex justify-between items-center mb-12">
+      <header className="w-full max-w-5xl flex justify-between items-center mb-12">
         
         <div className="flex ">
 
@@ -32,7 +32,7 @@ const Header = () => {
         {session ?.user && (
           <Link href={"/pages/dashboard"}>
           <div className="ml-2">
-            <Button>
+            <Button className="text-white border-white hover:bg-white hover:text-black">
               Meu Painel
             </Button>
           </div>
